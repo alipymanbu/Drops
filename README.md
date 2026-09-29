@@ -1,162 +1,25 @@
-# Drops 💧
+# drops
 
-A µFramework for showing alerts like the one used when copying from pasteboard or connecting Apple pencil.
+本仓库是「drops」的安卓版本获取入口，附使用资料索引。
 
-![Demo](https://raw.githubusercontent.com/omaralbeik/Drops/main/Assets/demo.gif)
+## 安装文件资源（夸克网盘）
 
----
+> **drops 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/437e8f990bf8](https://pan.quark.cn/s/437e8f990bf8)
 
-[![CI](https://github.com/omaralbeik/Drops/workflows/Drops/badge.svg)](https://github.com/omaralbeik/Drops/actions)
-[![codecov](https://codecov.io/gh/omaralbeik/Drops/branch/main/graph/badge.svg?token=399UQIKSLR)](https://codecov.io/gh/omaralbeik/Drops)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fomaralbeik%2FDrops%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/omaralbeik/Drops)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fomaralbeik%2FDrops%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/omaralbeik/Drops)
-## Features
+## 官方项目
 
-- iOS 13+
-- Can be used in SwiftUI and UIKit applications
-- Light/Dark modes
-- Interactive dismissal
-- Queue to show consecutive drops
-- Support dynamic font sizing
-- Support announcing title and subtitle via VoiceOver
-- Show from top or bottom of screen
+- 上游项目：[omaralbeik/Drops](https://github.com/omaralbeik/Drops)
 
----
+## 更多资料
 
-## Usage
-
-1. Create a drop:
-
-```swift
-let drop: Drop = "Title Only"
-```
-
-```swift
-let drop = Drop(title: "Title Only")
-```
-
-```swift
-let drop = Drop(title: "Title", subtitle: "Subtitle")
-```
-
-```swift
-let drop = Drop(title: "Title", subtitle: "Subtitle", duration: 5.0)
-```
-
-```swift
-let drop = Drop(
-    title: "Title",
-    subtitle: "Subtitle",
-    icon: UIImage(systemName: "star.fill"),
-    action: .init {
-        print("Drop tapped")
-        Drops.hideCurrent()
-    },
-    position: .bottom,
-    duration: 5.0,
-    accessibility: "Alert: Title, Subtitle"
-)
-```
-
-2. Show it:
-
-```swift
-Drops.show("Title")
-```
-
-```swift
-Drops.show(drop)
-```
-
-###### SwiftUI
-```swift
-import SwiftUI
-import Drops
-
-struct ContentView: View {
-    var body: some View {
-        Button("Show Drop") {
-            Drops.show(drop)
-        }
-    }
-}
-```
-
-###### UIKit
-```swift
-import UIKit
-import Drops
-
-class ViewController: UIViewController {
-    let drops = Drops(delayBetweenDrops: 1.0)
-
-    func showDrop() {
-        drops.show(drop)
-    }
-}
-```
-
-Read the [docs](https://omaralbeik.github.io/Drops) for more usage options.
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [上手与学习方法](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E4%B8%8A%E6%89%8B%E4%B8%8E%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95.md)
+- [免费版与付费版区别](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E5%85%8D%E8%B4%B9%E7%89%88%E4%B8%8E%E4%BB%98%E8%B4%B9%E7%89%88%E5%8C%BA%E5%88%AB.md)
+- [常见问题与排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8E%92%E6%9F%A5.md)
+- [支持哪些语言](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AF%AD%E8%A8%80.md)
+- [进度重置与账号注销](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/drops/%E8%BF%9B%E5%BA%A6%E9%87%8D%E7%BD%AE%E4%B8%8E%E8%B4%A6%E5%8F%B7%E6%B3%A8%E9%94%80.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
 ---
 
-## Example Projects
-
-- Run the `SwiftUIExample` target to see how Drops works in SwiftUI applications.
-- Run the `UIKitExample` target to see how Drops works in UIKit applications.
-
-![Example](https://raw.githubusercontent.com/omaralbeik/Drops/main/Assets/example.png)
-
----
-
-## Installation
-
-### Swift Package Manager
-
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code.
-
-1. Add the following to your `Package.swift` file:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/omaralbeik/Drops.git", from: "1.7.0")
-]
-```
-
-2. Build your project:
-
-```sh
-$ swift build
-```
-
-### CocoaPods
-
-To integrate Drops into your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your Podfile:
-
-```rb
-pod 'Drops', :git => 'https://github.com/omaralbeik/Drops.git', :tag => '1.7.0'
-```
-
-### Carthage
-
-To integrate Drops into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your Cartfile:
-
-```
-github "omaralbeik/Drops" ~> 1.7.0
-```
-
-### Manually
-
-Add the [Sources](https://github.com/omaralbeik/Drops/tree/main/Sources) folder to your Xcode project.
-
----
-
-## Thanks
-
-Special thanks to [SwiftKickMobile team](https://github.com/SwiftKickMobile) for creating [SwiftMessages](https://github.com/SwiftKickMobile/SwiftMessages), this project was heavily inspired by their work.
-
----
-
-## License
-
-Drops is released under the MIT license. See [LICENSE](https://github.com/omaralbeik/Drops/blob/main/LICENSE) for more information.
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/omaralbeik/Drops)。
